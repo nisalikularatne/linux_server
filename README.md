@@ -6,7 +6,7 @@ Goals of the project given by our instructors from Udacity:
 
 > You will take a baseline installation of a Linux distribution on a virtual machine and prepare it to host your web applications, to include installing updates, securing it from a number of attack vectors and installing/configuring web and database servers.
 
-The application meant to be deployed is the **Item catalog app**, previously developed for [Project 3](https://github.com/iliketomatoes/catalog).
+The application meant to be deployed is the **Item catalog app**, previously developed for [Project 3](https://github.com/Nisali Kularatne/Item Catalog).
 
 ## Useful info
 
