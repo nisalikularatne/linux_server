@@ -23,7 +23,7 @@ Application URL: [http://ec2-35-160-26-62.us-west-2.compute.amazonaws.com/](http
 
 1. Log into the remote VM as *root* user through ssh: `$ ssh root@35.160.26.62`.
 2. Add a new user called *student*: `$ sudo adduser student`.
-3. Create a new file under the suoders directory: `$ sudo nano /etc/sudoers.d/student`. Fill that newly created file with the following line of text: "grader ALL=(ALL:ALL) ALL", then save it.
+3. Create a new file under the suoders directory: `$ sudo nano /etc/sudoers.d/student`. Fill that newly created file with the following line of text: "student ALL=(ALL:ALL) ALL", then save it.
 4. In order to prevent the "sudo: unable to resolve host" error, edit the hosts:
 	1. `$ sudo nano /etc/hosts`.
 	2. Add the host: `127.0.1.1 ip-10-20-22-38`.
