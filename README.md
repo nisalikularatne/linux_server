@@ -45,7 +45,7 @@ Source: [UbuntuTime](https://help.ubuntu.com/community/UbuntuTime).
 
 1. Generate an encryption key **on your local machine** with: `$ ssh-keygen -f ~/.ssh/udacity_key.rsa`.
 2. Log into the remote VM as *root* user through ssh and create the following file: `$ touch /home/student/.ssh/authorized_keys`.
-3. Copy the content of the *udacity_key.pub* file from your local machine to the */home/grader/.ssh/authorized_keys* file you just created on the remote VM. Then change some permissions:
+3. Copy the content of the *udacity_key.pub* file from your local machine to the */home/student/.ssh/authorized_keys* file you just created on the remote VM. Then change some permissions:
 	1. `$ sudo chmod 700 /home/student/.ssh`.
 	2. `$ sudo chmod 644 /home/student/.ssh/authorized_keys`.
 	3. Finally change the owner from *root* to *student*: `$ sudo chown -R student:student /home/student/.ssh`.
@@ -98,7 +98,7 @@ Sources: [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-
 ### 11 - Clone the Catalog app from Github
 
 1. `$ cd /var/www`. Then: `$ sudo mkdir catalog`.
-2. Change owner for the *catalog* folder: `$ sudo chown -R grader:grader catalog`.
+2. Change owner for the *catalog* folder: `$ sudo chown -R student:student catalog`.
 3. Move inside that newly created folder: `$ cd /catalog` and clone the catalog repository from Github: `$ git clone https://github.com/nisalikularatne/ItemCatalog.git catalog`.
 4. Make a *catalog.wsgi* file to serve the application over the *mod_wsgi*. That file should look like this:
 
@@ -167,7 +167,7 @@ Source: [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-r
 7. Connect to the database: `# \c catalog`.
 8. Revoke all rights: `# REVOKE ALL ON SCHEMA public FROM public;`.
 9. Lock down the permissions to only let *catalog* role create tables: `# GRANT ALL ON SCHEMA public TO catalog;`.
-10. Log out from PostgreSQL: `# \q`. Then return to the *grader* user: `$ exit`.
+10. Log out from PostgreSQL: `# \q`. Then return to the *student* user: `$ exit`.
 11. Inside the Flask application, the database connection is now performed with: 
 ```python
 engine = create_engine('postgresql://catalog:sillypassword@localhost/catalog')
