@@ -11,22 +11,22 @@ The application meant to be deployed is the **Item catalog app**, previously dev
 
 ## Useful info
 
-IP address: 35.160.26.62
+IP address: 35.160.12.183
 
 Accessible SSH port: 2200.
 
-Application URL: [http://ec2-35-160-26-62.us-west-2.compute.amazonaws.com/](http://ec2-35-160-26-62.us-west-2.compute.amazonaws.com/).
+Application URL: [http://ec2-35-160-12-183.us-west-2.compute.amazonaws.com/](http://ec2-35-160-12-183.us-west-2.compute.amazonaws.com/).
 
 ## Step by step walkthrough
 
 ### 1 - Create a new user named *student* and grant this user sudo permissions.
 
-1. Log into the remote VM as *root* user through ssh: `$ ssh root@35.160.26.62`.
+1. Log into the remote VM as *root* user through ssh: `$ ssh root@35.160.12.183`.
 2. Add a new user called *student*: `$ sudo adduser student`.
 3. Create a new file under the suoders directory: `$ sudo nano /etc/sudoers.d/student`. Fill that newly created file with the following line of text: "student ALL=(ALL:ALL) ALL", then save it.
 4. In order to prevent the "sudo: unable to resolve host" error, edit the hosts:
 	1. `$ sudo nano /etc/hosts`.
-	2. Add the host: `127.0.1.1 ip-10-20-22-38`.
+	2. Add the host: `127.0.1.1 ip-10-20-6-180`.
 
 ### 2 - Update all currently installed packages
 
@@ -49,7 +49,7 @@ Source: [UbuntuTime](https://help.ubuntu.com/community/UbuntuTime).
 	1. `$ sudo chmod 700 /home/student/.ssh`.
 	2. `$ sudo chmod 644 /home/student/.ssh/authorized_keys`.
 	3. Finally change the owner from *root* to *student*: `$ sudo chown -R student:student /home/student/.ssh`.
-4. Now you are able to log into the remote VM through ssh with the following command: `$ ssh -i ~/.ssh/udacity_key.rsa student@35.160.26.62`.
+4. Now you are able to log into the remote VM through ssh with the following command: `$ ssh -i ~/.ssh/udacity_key.rsa student@35.160.12.183`.
 
 ### 5 - Enforce key-based authentication
 1. `$ sudo nano /etc/ssh/sshd_config`. Find the *PasswordAuthentication* line and edit it to *no*.
@@ -130,9 +130,9 @@ Sources: [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-
 2. Paste in the following lines of code:
 ```
 <VirtualHost *:80>
-    ServerName 35.160.26.62
-    ServerAlias ec2-35-160-26-62.us-west-2.compute.amazonaws.com
-    ServerAdmin admin@35.160.26.62
+    ServerName 35.160.12.183
+    ServerAlias ec2-35-160-12-183.us-west-2.compute.amazonaws.com
+    ServerAdmin admin@35.160.12.183
     WSGIDaemonProcess catalog python-path=/var/www/catalog:/var/www/catalog/venv/lib/python2.7/site-packages
     WSGIProcessGroup catalog
     WSGIScriptAlias / /var/www/catalog/catalog.wsgi
